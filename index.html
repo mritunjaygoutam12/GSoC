@@ -1,4 +1,3 @@
-
 <html>
 <!--
 
@@ -178,13 +177,13 @@ var UI =
         ctx.strokeText("P i n k   T r o m b o n e", 300, 230);
         ctx.fillText("P i n k   T r o m b o n e", 300, 230);
  ctx.font="50px Arial";        
-        ctx.fillText("(GSoC 2017)", 300, 380); 
+        ctx.fillText("(By Neil Thapen)", 300, 380); 
        
         ctx.font="28px Arial";
         ctx.fillText("bare-handed  speech synthesis", 300, 330);
 
-        ctx.font="50px Arial";        
-        ctx.fillText("(GSoC 2017)", 300, 380);   
+        ctx.font="30px Arial";        
+        ctx.fillText("(Used by Mritunjay in Gsoc 2017)", 300, 149);   
          
         if (isFirefox) 
         {
@@ -236,8 +235,8 @@ var UI =
         
         this.instructionsLine = 18.8;
         ctx.textAlign = "left";
-        this.write("(GSoC project)Pink Trombone v1.1");
-        this.write("MRITUNJAY GOUTAM");
+        this.write("Pink Trombone v1.1");
+        this.write("Neil thapen");
         ctx.fillStyle = "blue";
         ctx.globalAlpha = 0.6;
         this.write("ALSO SEE(venuspatrol.nfshost.com)");
@@ -1489,7 +1488,7 @@ var TractUI =
         var a = this.innerTongueControlRadius;
         var c = this.outerTongueControlRadius;
         var b = 0.5*(a+c);
-        var r = 3;
+        var r = 8;
         this.ctx.fillStyle = "orchid";
         this.ctx.globalAlpha = 0.3;        
         this.drawCircle(this.tongueIndexCentre, a, r);
@@ -1508,7 +1507,7 @@ var TractUI =
         var angle = this.angleOffset + this.tongueIndex * this.angleScale * Math.PI / (Tract.lipStart-1);
         var r = this.radius - this.scale*(this.tongueDiameter);
         var x = this.originX-r*Math.cos(angle);
-        var y = this.originY-r*Math.sin(angle);
+       var y = this.originY-r*Math.sin(angle);
         this.ctx.lineWidth = 4;
         this.ctx.strokeStyle = "orchid";
         this.ctx.globalAlpha = 0.7;
@@ -1528,17 +1527,17 @@ var TractUI =
         var h=15;
         if (Glottis.x)
         {
-            this.ctx.lineWidth = 4;
+            this.ctx.lineWidth = 8;
             this.ctx.strokeStyle = "orchid";
-            this.ctx.globalAlpha = 0.7;
+            this.ctx.globalAlpha = 0.9;
             this.ctx.beginPath();
             this.ctx.moveTo(Glottis.x-w, Glottis.y-h);
-            this.ctx.lineTo(Glottis.x+w, Glottis.y-h);
-            this.ctx.lineTo(Glottis.x+w, Glottis.y+h);
+           this.ctx.lineTo(Glottis.x+w, Glottis.y-h);
+           this.ctx.lineTo(Glottis.x+w, Glottis.y+h);
             this.ctx.lineTo(Glottis.x-w, Glottis.y+h);                    
             this.ctx.closePath();            
             this.ctx.stroke();    
-            this.ctx.globalAlpha = 0.15;
+           this.ctx.globalAlpha = 0.15;
             this.ctx.fill();            
             this.ctx.globalAlpha = 1.0;
         }
@@ -1716,7 +1715,7 @@ Tract.init();
 TractUI.init();
     
 requestAnimationFrame(redraw);
-function redraw(highResTimestamp)
+  function redraw(highResTimestamp)
 {
     UI.shapeToFitScreen();
     TractUI.draw();
@@ -1766,14 +1765,13 @@ function redraw(highResTimestamp)
                new Grad(1,0,1),new Grad(-1,0,1),new Grad(1,0,-1),new Grad(-1,0,-1),
                new Grad(0,1,1),new Grad(0,-1,1),new Grad(0,1,-1),new Grad(0,-1,-1)];
 
-  var p = [151,160,137,91,90,15,
-  131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,
+    var p = [151,160,137,91,90,15,
+ 131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,
   190, 6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,
   88,237,149,56,87,174,20,125,136,171,168, 68,175,74,165,71,134,139,48,27,166,
   77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,55,46,245,40,244,
   102,143,54, 65,25,63,161, 1,216,80,73,209,76,132,187,208, 89,18,169,200,196,
-  135,130,116,188,159,86,164,100,109,198,173,186, 3,64,52,217,226,250,124,123,
-  5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,189,28,42,
+  135,130,116,188,159,86,164,100,109,198,173,186, 3,64,52,217,226,250,124,123, 5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,189,28,42,
   223,183,170,213,119,248,152, 2,44,154,163, 70,221,153,101,155,167, 43,172,9,
   129,22,39,253, 19,98,108,110,79,113,224,232,178,185, 112,104,218,246,97,228,
   251,34,242,193,238,210,144,12,191,179,162,241, 81,51,145,235,249,14,239,107,
