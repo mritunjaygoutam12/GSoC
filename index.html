@@ -101,6 +101,7 @@ head.polygons[6].opacity=0.5;head.polygons[18].opacity=0.5;*/
 //testCube.textures.push(bitmaps[0]);
    scene.graph.push(head);
    scene.graph.push(new Phoria.DistantLight());
+if(1){}
 
   /*var tounge=Phoria.Entity.create({
       points:[{x:2,y:0,z:5},{x:3,y:1,z:7},{x:2,y:4,z:5}],
@@ -118,7 +119,7 @@ tounge.translateY(-3);
 tounge.translateZ(16);
     scene.graph.push(tounge);*/
 
-  var blueLightObj = Phoria.Entity.create({
+  /*var blueLightObj = Phoria.Entity.create({
       points: [{x:0.5, y:0, z:-12}],
       style: {
          color: [255,182,0],
@@ -129,7 +130,7 @@ tounge.translateZ(16);
       }
    });
 
-   scene.graph.push(blueLightObj);
+   scene.graph.push(blueLightObj);*/
 
    /*var blueLight = Phoria.PointLight.create({
       position: {x:0, y:0, z:-12},
@@ -152,8 +153,15 @@ tounge.translateZ(16);
    };
     //<p><button type="button">SPREAD</button>
    // add GUI controls
+ 
    var gui = new dat.GUI();
+   var mo=new dat.GUI();
+   var k=mo.addFolder('perspective');
+k.add(scene.perspective, "fov").min(5).max(175);
+   k.add(scene.perspective, "near").min(1).max(100);
+k.open();
    var f = gui.addFolder('Perspective');
+
    f.add(scene.perspective, "fov").min(5).max(175);
    f.add(scene.perspective, "near").min(1).max(100);
    f.add(scene.perspective, "far").min(1).max(1000);
@@ -162,12 +170,12 @@ tounge.translateZ(16);
    f.add(scene.camera.lookat, "x").min(-100).max(100);
    f.add(scene.camera.lookat, "y").min(-100).max(100);
    f.add(scene.camera.lookat, "z").min(-100).max(100);
-   f.open();
+  // f.open();
    f = gui.addFolder('Camera Position');
    f.add(scene.camera.position, "x").min(-100).max(100);
    f.add(scene.camera.position, "y").min(-100).max(100);
    f.add(scene.camera.position, "z").min(-100).max(100);
-   f.open();
+   //f.open();
    f = gui.addFolder('Camera Up');
    f.add(scene.camera.up, "x").min(-10).max(10).step(0.1);
    f.add(scene.camera.up, "y").min(-10).max(10).step(0.1);
@@ -176,8 +184,10 @@ tounge.translateZ(16);
    f.add(head.style, "drawmode", ["point", "solid"]);
    f.add(head.style, "shademode", ["plain", "lightsource"]);
    f.add(head.style, "fillmode", ["fill", "filltwice", "inflate", "fillstroke", "hiddenline"]);
-   //f.add(head.point[0],[{x:-1.066932,y:3.651665,z:3.996890},{x:0.096565,y:2.023949,z:4.752680}]
-   f.open();
+   f.add(head.style,"opacity",[0.5,2]);
+   //f.add(head.point[0],[{x:-1.066932,y:3.651665,z:3.996890},{x:0.096565,y:2.023949,z:4.752680}]);
+   // f.add(head.polygons[46]."drawmode",["point","solid"]);
+   //f.open();
    
    // start animation
    requestAnimFrame(fnAnimate);
