@@ -55,6 +55,7 @@ function onloadHandler()
          objectsortmode: "back"
       }
    }));
+	//point for head after start point for tounge
    var head = Phoria.Entity.create({
 points: [{x:-0.975677,y:1.941183,z:-2.049427},//0
 {x:1.123181,y:1.941183,z:-2.089205},//1
@@ -211,6 +212,7 @@ polygons:[{vertices:[0,1,2]},{vertices:[3,4,2]},{vertices:[4,3,2]},{vertices:[1,
          //fillmode: "fill",
          //doublesided: true
       }*/
+	   //opacity handle the tranprancy
 style: {
          //texture: 0,
 color: [255,182,193],
@@ -220,12 +222,13 @@ color: [255,182,193],
          doublesided: true
       }
    });
-
+//here i change the default opacity and color for exterior part
 var i=0;
 for(i=0;i<172;i++){
 head.polygons[i].opacity=0.1;
 head.polygons[i].color=[255,20,147];
 }
+	//here for interior part
 var i=0;
 for(i=172;i<237;i++){
 head.polygons[i].opacity=0.5;
