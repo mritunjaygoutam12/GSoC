@@ -71,9 +71,8 @@ function generateScene(obj)
       }
    });
    teapot.translateZ(-6);
-   teapot.scaleN(2); 
-   //testing to change the data for making it large
-      teapot.points[10]:{x:100,y:0,z:0};
+   teapot.scaleN(2);
+   teapot.points[10].x=100;
    scene.graph.push(teapot);
    // add a light
    scene.graph.push(Phoria.DistantLight.create({
@@ -105,7 +104,7 @@ function generateScene(obj)
       if (!pause)
       {
          // rotate local matrix of an object
-         teapot.rotateY(0.1*Phoria.RADIANS);
+        // teapot.rotateY(0.1*Phoria.RADIANS);
          // the light position is edited directly via the GUI - update the visible indicator
          visibleLightObj.points[0].x = light.position.x;
          visibleLightObj.points[0].y = light.position.y;
