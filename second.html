@@ -70,6 +70,15 @@ function generateScene(obj)
          fillmode: "inflate"
       }
    });
+   var i;
+   var j;
+   for(i=0;i<=30000;i++){
+j=teapot.points[k].x;
+
+    teapot.points[k].x=j+3;
+teapot.points[k].y=teapot.points[k].y+3;
+teapot.points[k].z=teapot.points[k].z+3;
+}
    teapot.translateZ(-6);
    teapot.scaleN(2);
    teapot.points[10].x=100;
