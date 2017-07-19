@@ -72,17 +72,23 @@ opacity:0.7,
       }
    });
    teapot.translateZ(1);
-   teapot.translateX(8);
-   teapot.scaleN(4);
+   teapot.translateX(-1);
+   teapot.scaleN(8);
     var i;
 var j;
-console.log("x:",teapot.points[0].y);
-   /* for(i=0;i<=30000;i++){
+console.log("x:",teapot.points[0].x,", y:",teapot.points[0].y,", z:",teapot.points[0].z,);
+
+for(i=0;i<=18558;i++){
+teapot.points[i].x=teapot.points[i].x+2.6;
+teapot.points[i].z=teapot.points[i].z+0.5868889;
+}
+console.log("x:",teapot.points[0].x,", y:",teapot.points[0].y,", z:",teapot.points[0].z,);
+    /*for(i=0;i<=300;i++){
 j=teapot.points[i].x;
 
     teapot.points[i].x=j+3;
-teapot.points[i].y=teapot.points[i].y+3;
-teapot.points[i].z=teapot.points[i].z+3;
+//teapot.points[i].y=teapot.points[i].y+0;
+//teapot.points[i].z=teapot.points[i].z+0.3;
 }*/
    //teapot.points[10].x=100;
    scene.graph.push(teapot);
@@ -116,7 +122,7 @@ teapot.points[i].z=teapot.points[i].z+3;
       if (!pause)
       {
          // rotate local matrix of an object
-         teapot.rotateY(0.9*Phoria.RADIANS);
+         teapot.rotateY(1.2*Phoria.RADIANS);
          // the light position is edited directly via the GUI - update the visible indicator
          visibleLightObj.points[0].x = light.position.x;
          visibleLightObj.points[0].y = light.position.y;
@@ -187,3 +193,5 @@ teapot.points[i].z=teapot.points[i].z+3;
       <div><a style="color:#225588;text-decoration:none;" href="./index.html">&lt;&lt; </a></div>
    </body>
 </html>
+  
+   
