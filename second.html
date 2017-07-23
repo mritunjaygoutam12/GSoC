@@ -2,7 +2,7 @@
 <html>
    <head>
       <meta charset="utf-8">
-      <title>CMU SPHINX</title>
+      <title>Phoria - Dev test page 2</title>
       <script src="scripts/gl-matrix.js"></script>
       <script src="scripts/phoria-util.js"></script>
       <script src="scripts/phoria-entity.js"></script>
@@ -37,7 +37,7 @@ function generateScene(obj)
    
    // create the scene and setup camera, perspective and viewport
    var scene = new Phoria.Scene();
-   scene.camera.position = {x:0.0, y:4.0, z:-15.0};
+   scene.camera.position = {x:0.0, y:3.0, z:-15.0};
    scene.perspective.aspect = canvas.width / canvas.height;
    scene.viewport.width = canvas.width;
    scene.viewport.height = canvas.height;
@@ -47,7 +47,7 @@ function generateScene(obj)
    
    // GENERATE TEST ENTITIES
    // add a grid to help visualise camera position etc.
-  /* var plane = Phoria.Util.generateTesselatedPlane(16,16,0,20);
+   var plane = Phoria.Util.generateTesselatedPlane(16,16,0,20);
    scene.graph.push(Phoria.Entity.create({
       points: plane.points,
       edges: plane.edges,
@@ -58,7 +58,7 @@ function generateScene(obj)
          linewidth: 0.5,
          objectsortmode: "back"
       }
-   }));*/
+   }));
    var teapot = Phoria.Entity.create({
       points: obj.points,
       polygons: obj.polygons,
@@ -67,7 +67,7 @@ function generateScene(obj)
 opacity:0.7,
          drawmode: "solid",
          shademode: "lightsource",   //gouraud
-         fillmode: "inflate"
+         fillmode: "filltwice"
       }
    });
    teapot.translateZ(1);
@@ -77,8 +77,8 @@ opacity:0.7,
 var j;
 console.log("x:",teapot.points[0].x,", y:",teapot.points[0].y,", z:",teapot.points[0].z,);
 for(i=0;i<=18558;i++){
-teapot.points[i].x=teapot.points[i].x+2.6;
-teapot.points[i].z=teapot.points[i].z+0.5868889;
+teapot.points[i].x=teapot.points[i].x+2.22;
+teapot.points[i].z=teapot.points[i].z+0.6000889;
 }
 console.log("x:",teapot.points[0].x,", y:",teapot.points[0].y,", z:",teapot.points[0].z,);
     /*for(i=0;i<=300;i++){
@@ -110,13 +110,49 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
    });
    scene.graph.push(visibleLightObj);
    var light = Phoria.PointLight.create({
-      color: [1, 0, 0],
+      color: [1, 1, 1],
       position: {x:-2, y:4, z:-6},
       intensity: 0.3,
       attenuation: 0.03
    });
    visibleLightObj.children.push(light);
-   
+  var k; 
+var inter=document.getElementById("interior");
+inter.onclick=function(){
+for(k=1500;k<=8000;k++){
+teapot.polygons[k].color=[200,250,70];
+console.log("y:",teapot.polygons[k].y,teapot.polygons[k].z);
+//scene.camera.position = {x:-8, y:4.0, z:-5.0};
+
+}
+
+}
+var inte=document.getElementById("exterior");
+inte.onclick=function(){
+/*for(i=0;i<=2500;i++){
+teapot.polygons[i].opacity=0.9;
+}*/
+for(i=0;i<=50;i++){
+teapot.polygons[i].opacity=0.9;
+}
+ 
+}
+var p=0;
+var stop=document.getElementById("stop");
+stop.onclick=function(){
+
+if(p==0){
+pause=true;
+p++;
+
+}
+
+else{
+pause=false;
+p=0;
+}
+
+}
    var pause = false;
    var fnAnimate = function() {
       if (!pause)
@@ -187,11 +223,79 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
 }
       </script>
    </head>
-   
+<style type="text/css" media=screen>
+
+	
+	#IPA {	white-space: nowrap; 
+			font-size: xx-large;
+			background: #ffffff;
+			border: 4px solid #8a8a90;
+			color: #000000; 
+			text-align: center;
+			font-family: 'Charis SIL', 'Libertinus Serif', 'Linux Libertine G', 'Linux Libertine', 'Linux Biolinum G', 'Linux Biolinum', 'Doulos SIL', 'Cardo', 'Brill', 'DejaVu Serif', 'Lucida Grande', 'Symbola', 'Junicode';
+			display: block;
+			float: right;
+			margin-top: 0pt;
+			margin-left: 1ex;
+			width: 3em;
+			padding-bottom: 1ex;
+			padding-top: 1ex;
+			border-radius: 12pt;}	
+
+	#controlpanel {	float: right;
+					padding-right: 1ex;
+					border-radius: 8pt;}
+        #right{
+                float: right;color:#ffa;
+}
+	#lip{float: left;color:[1,1,1];}
+
+table {	border: thin solid #f5f5dc;
+			margin: 4px;
+			display: block;
+			float: left;
+			vertical-align: top;
+			background: #1a3b41;
+			border-radius: 0.5em;}
+	thead {width: 100%;}
+	tbody {width: 100%;}
+	tr {width: 100%;}
+	table.inner {	border: thin solid #1a1a20;
+					background: #1a3a43;}
+	td {padding: 4px;
+		white-space: nowrap;}
+	th {font-family: 'Linux Biolinum', 'Linux Biolinum G', 'Linux Biolinum O', sans-serif;
+		font-variant: small-caps;
+		padding: 4px;
+		border-bottom: thin solid #f5f5dc;
+		font-weight: normal;
+		text-transform: lowercase;} 
+	table.inner th {border: none;
+					text-align: left;}
+	table.inner td {text-align: center;}
+
+      
+      #singh{float:left;text-align:right;}     
+	
+</style>
    <body style="background-color: #bfbfbf">
       <canvas id="canvas" width="768" height="512" style="background-color: #bfbfbf"></canvas>
-      <div><a style="color:#225588;text-decoration:none;" href="./index.html">&lt;&lt;first part </a></div>
-      	<input type="radio" name="labial" id="spread" value="interior" checked=true >&nbsp;Interior<br>
-      	<input type="radio" name="labial" id="spread" value="Exterior" checked=true >&nbsp;Exterior<br>
+      <div><a style="color:#225588;text-decoration:none;" href="./index.html">&lt;&lt; </a></div>
+		<input type="radio" name="labial" id="stop" value="spread" checked=true >&nbsp;stop<br>
+<table id="lip">
+	<tbody>
+	<tr><td><p>
+	<input type="radio" name="labial" id="interior" value="spread" checked=true >&nbsp;Cerebellum<br>
+	<input type="radio" name="labial" id="exterior" value="rounded" onclick="doLips();">&nbsp;Occipital Lobe<br>
+	<input type="radio" name="labial"  id="tl">&nbsp;Temporal lobe<br>
+	<input type="radio" name="labial" id="bl" value="blstop" onclick="doLips();">&nbsp;frontal lobe<br>
+	<input type="radio" name="labial" id="ld" value="ld" onclick="doLips();">&nbsp;parietal lobe</p>
+	
+	</td></tr>
+	</tbody>
+</table>
    </body>
 </html>
+
+
+   
