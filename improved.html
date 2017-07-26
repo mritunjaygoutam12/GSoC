@@ -158,7 +158,13 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
         gameObj.transform.eulerAngles.z
     );*/
 
-   
+   var mohit=document.getElementById("stop");
+	mohit.onclick=function(){
+	var t;
+		for(t=0;t<400;t++){
+		teapot.polygons[t].opacity=0.001;
+		}
+	}
 
    // keep track of rotation
    var mouse = Phoria.View.addMouseEvents(canvas);
