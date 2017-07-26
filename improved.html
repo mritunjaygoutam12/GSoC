@@ -8,6 +8,7 @@
       <script src="scripts/phoria-entity.js"></script>
       <script src="scripts/phoria-scene.js"></script>
       <script src="scripts/phoria-renderer.js"></script>
+<script src="scripts/phoria-view.js"></script>
       <script src='scripts/dat.gui.min.js'></script>
       <script>
 var requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame ||
@@ -82,7 +83,9 @@ var j;
 for(i=0;i<800;i++){
 teapot.polygons[i].opacity=0.001;
 }
-
+/*for(j=4500;j<5000;j++){
+teapot.polygons[j].opacity=0.001;
+}
 /*for(i=(teapot.points.length)/2;i<(teapot.points.length)/1;i++){
 teapot.polygons[i].color=[0,1,0];
 }
@@ -157,9 +160,35 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
 
    
 
+   // keep track of rotation
+   var mouse = Phoria.View.addMouseEvents(canvas);
+   var rot = {
+      x: 5, y: 5, z: 0,
+      velx: 0, vely: 0, velz: 0,
+      nowx: 0, nowy: 0, nowz: 0,
+      ratio: 0.1
+   };
+
+   var pause = false;
+   var fnAnimate = function() {
+      if (!pause)
+      {
+         // rotate local matrix of the cube
+         rot.nowy += (rot.vely = (mouse.velocityV - rot.y - rot.nowy) * rot.ratio);
+         rot.nowx += (rot.velx = (rot.x - rot.nowx) * rot.ratio);
+         rot.nowz += (rot.velz = (mouse.velocityH - rot.z - rot.nowz) * rot.ratio);
+         
+         teapot.rotateY(-rot.vely*Phoria.RADIANS).rotateX(-rot.velx*Phoria.RADIANS).rotateZ(-rot.velz*Phoria.RADIANS);
+
+         // execute the model view 3D pipeline and render the scene
+         scene.modelView();
+         renderer.render(scene);
+      }
+      requestAnimFrame(fnAnimate);
+   };
 
 //teapot.rotation.x = Math.PI / 180 * 90;
-   var pause = false;
+   /*var pause = false;
    var fnAnimate = function() {
       if (!pause)
       {
@@ -176,7 +205,7 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
       }
       
       requestAnimFrame(fnAnimate);
-   };
+   };*/
    
    // add GUI controls
    var gui = new dat.GUI();
@@ -238,4 +267,5 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
 
    </body>
 </html>
+
 
