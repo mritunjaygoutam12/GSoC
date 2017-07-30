@@ -8,7 +8,7 @@
       <script src="scripts/phoria-entity.js"></script>
       <script src="scripts/phoria-scene.js"></script>
       <script src="scripts/phoria-renderer.js"></script>
-      <script src="scripts/phoria-view.js"></script>
+<script src="scripts/phoria-view.js"></script>
       <script src='scripts/dat.gui.min.js'></script>
       <script>
 var requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame ||
@@ -82,6 +82,9 @@ console.log(t);
 var j;
 for(i=0;i<800;i++){
 teapot.polygons[i].opacity=0.001;
+}
+for(j=0;j<teapot.points.length;j++){
+console.log(teapot.points[j].x);
 }
 /*for(j=4500;j<5000;j++){
 teapot.polygons[j].opacity=0.001;
@@ -158,34 +161,65 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
         gameObj.transform.eulerAngles.z
     );*/
 
-   var mohit=document.getElementById("stop");
-	mohit.onclick=function(){
-	var t;
-		for(t=0;t<400;t++){
-		teapot.polygons[t].opacity=0.001;
-		}
-	}
+   
 
    // keep track of rotation
-   var mouse = Phoria.View.addMouseEvents(canvas);
    var rot = {
-      x: 5, y: 5, z: 0,
-      velx: 0, vely: 0, velz: 0,
-      nowx: 0, nowy: 0, nowz: 0,
-      ratio: 0.1
+      x: 0,
+      y: 0,
+      z: 0,
+      lastx: 0,
+      lasty: 0,
+      lastz: 0,
+      worldaxis: true
    };
-
+   
    var pause = false;
    var fnAnimate = function() {
       if (!pause)
       {
-         // rotate local matrix of the cube
-         rot.nowy += (rot.vely = (mouse.velocityV - rot.y - rot.nowy) * rot.ratio);
-         rot.nowx += (rot.velx = (rot.x - rot.nowx) * rot.ratio);
-         rot.nowz += (rot.velz = (mouse.velocityH - rot.z - rot.nowz) * rot.ratio);
+         // rotate local matrix of an object by WORLD or LOCAL X/Y/Z  axis
+         if (rot.lastx - rot.x)
+         {
+            var q = quat.setAxisAngle(quat.create(), vec3.fromValues(1,0,0), (rot.lastx - rot.x)*Phoria.RADIANS);
+            var m = mat4.fromQuat(mat4.create(), q);
+            if (rot.worldaxis) {
+               mat4.mul(obj.matrix, m, teapot.matrix);  // WORLD AXIS ORDER
+            }
+            else {
+               mat4.mul(teapot.matrix, teapot.matrix, m);  // LOCAL AXIS ORDER
+            }
+            rot.lastx = rot.x;
+         }
+         if (rot.lasty - rot.y)
+         {
+            var q = quat.setAxisAngle(quat.create(), vec3.fromValues(0,1,0), (rot.lasty - rot.y)*Phoria.RADIANS);
+            var m = mat4.fromQuat(mat4.create(), q);
+            if (rot.worldaxis) {
+               mat4.mul(teapot.matrix, m, teapot.matrix);  // WORLD AXIS ORDER
+            }
+            else {
+               mat4.mul(teapot.matrix, teapot.matrix, m);  // LOCAL AXIS ORDER
+            }
+            rot.lasty = rot.y;
+         }
+         if (rot.lastz - rot.z)
+         {
+            var q = quat.setAxisAngle(quat.create(), vec3.fromValues(0,0,1), (rot.lastz - rot.z)*Phoria.RADIANS);
+            var m = mat4.fromQuat(mat4.create(), q);
+            if (rot.worldaxis) {
+               mat4.mul(obj.matrix, m, teapot.matrix);  // WORLD AXIS ORDER
+            }
+            else {
+               mat4.mul(teapot.matrix, teapot.matrix, m);  // LOCAL AXIS ORDER
+            }
+            rot.lastz = rot.z;
+         }
          
-         teapot.rotateY(-rot.vely*Phoria.RADIANS).rotateX(-rot.velx*Phoria.RADIANS).rotateZ(-rot.velz*Phoria.RADIANS);
-
+         // the light position is edited directly via the GUI - update the visible indicator
+         visibleLightObj.points[0].x = light.position.x;
+         visibleLightObj.points[0].y = light.position.y;
+         visibleLightObj.points[0].z = light.position.z;
          // execute the model view 3D pipeline and render the scene
          scene.modelView();
          renderer.render(scene);
@@ -246,6 +280,12 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
    f.add(light.color, "2").min(0).max(1).step(0.1).name("blue");
    f.add(light, "intensity").min(0).max(1).step(0.1);
    f.add(light, "attenuation").min(0.01).max(0.25).step(0.01);
+f = gui.addFolder('Rotate XYZ');
+   f.add(rot, "worldaxis");
+   f.add(rot, "x").min(-180).max(180);
+   f.add(rot, "y").min(-180).max(180);
+   f.add(rot, "z").min(-180).max(180);
+   f.open();
    //f.open();
    // key binding
    document.addEventListener('keydown', function(e) {
@@ -273,5 +313,6 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
 
    </body>
 </html>
+
 
 
