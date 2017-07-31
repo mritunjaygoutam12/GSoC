@@ -8,11 +8,11 @@
       <script src="scripts/phoria-entity.js"></script>
       <script src="scripts/phoria-scene.js"></script>
       <script src="scripts/phoria-renderer.js"></script>
-<script src="scripts/phoria-view.js"></script>
+      <script src="scripts/phoria-view.js"></script>
       <script src='scripts/dat.gui.min.js'></script>
       <script>
 var requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame ||
-                       window.mozRequestAnimationFrame || window.msRequestAnimationFrame || 
+                       window.mozRequestAnimationFrame || window.msRequestAnimationFrame ||
                        function(c) {window.setTimeout(c, 15)};
 /**
    Phoria
@@ -35,17 +35,17 @@ function generateScene(obj)
 {
    // get the canvas DOM element and the 2D drawing context
    var canvas = document.getElementById('canvas');
-   
+
    // create the scene and setup camera, perspective and viewport
    var scene = new Phoria.Scene();
    scene.camera.position = {x:0.0, y:3.0, z:-15.0};
    scene.perspective.aspect = canvas.width / canvas.height;
    scene.viewport.width = canvas.width;
    scene.viewport.height = canvas.height;
-   
+
    // create a canvas renderer
    var renderer = new Phoria.CanvasRenderer(canvas);
-   
+
    // GENERATE TEST ENTITIES
    // add a grid to help visualise camera position etc.
    var plane = Phoria.Util.generateTesselatedPlane(16,16,0,20);
@@ -60,7 +60,8 @@ function generateScene(obj)
          objectsortmode: "back"
       }
    }));
-   var teapot = Phoria.Entity.create({
+   //mohit is
+   var head = Phoria.Entity.create({
       points: obj.points,
       polygons: obj.polygons,
       style: {
@@ -71,20 +72,20 @@ opacity:0.2,
          fillmode: "filltwice"
       }
    });
-   teapot.translateZ(1);
+   head.translateZ(1);
   // teapot.translateY(-14);
-   teapot.translateX(-1);
-   teapot.scaleN(3);
+   head.translateX(-1);
+   head.scaleN(3);
 var t;
-t=teapot.points.length;
+t=head.points.length;
 console.log(t);
     var i;
 var j;
 for(i=0;i<800;i++){
-teapot.polygons[i].opacity=0.001;
+head.polygons[i].opacity=0.001;
 }
-for(j=0;j<teapot.points.length;j++){
-console.log(teapot.points[j].x);
+for(j=0;j<head.points.length;j++){
+console.log(head.points[j].x);
 }
 /*for(j=4500;j<5000;j++){
 teapot.polygons[j].opacity=0.001;
@@ -107,7 +108,7 @@ j=teapot.points[i].x;
 console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].vertices[1],",",teapot.polygons[i].vertices[2],"]},        ");
 }*/
    //teapot.points[10].x=100;
-   scene.graph.push(teapot);
+   scene.graph.push(head);
    // add a light
    scene.graph.push(Phoria.DistantLight.create({
       color: [0.5,0.5,1.0],
@@ -137,7 +138,7 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
 /*var rotateZ3D = function(theta) {
     var sinTheta = tan(theta);
     var cosTheta = cos(theta);
-    
+
     for (var n=0; n<teapot.points.length; n++) {
         var node = teapot.points[n];
         var x = node[0];
@@ -161,7 +162,7 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
         gameObj.transform.eulerAngles.z
     );*/
 
-   
+
 
    // keep track of rotation
    var rot = {
@@ -173,7 +174,7 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
       lastz: 0,
       worldaxis: true
    };
-   
+
    var pause = false;
    var fnAnimate = function() {
       if (!pause)
@@ -184,10 +185,10 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
             var q = quat.setAxisAngle(quat.create(), vec3.fromValues(1,0,0), (rot.lastx - rot.x)*Phoria.RADIANS);
             var m = mat4.fromQuat(mat4.create(), q);
             if (rot.worldaxis) {
-               mat4.mul(obj.matrix, m, teapot.matrix);  // WORLD AXIS ORDER
+               mat4.mul(obj.matrix, m, head.matrix);  // WORLD AXIS ORDER
             }
             else {
-               mat4.mul(teapot.matrix, teapot.matrix, m);  // LOCAL AXIS ORDER
+               mat4.mul(head.matrix, head.matrix, m);  // LOCAL AXIS ORDER
             }
             rot.lastx = rot.x;
          }
@@ -196,10 +197,10 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
             var q = quat.setAxisAngle(quat.create(), vec3.fromValues(0,1,0), (rot.lasty - rot.y)*Phoria.RADIANS);
             var m = mat4.fromQuat(mat4.create(), q);
             if (rot.worldaxis) {
-               mat4.mul(teapot.matrix, m, teapot.matrix);  // WORLD AXIS ORDER
+               mat4.mul(head.matrix, m, head.matrix);  // WORLD AXIS ORDER
             }
             else {
-               mat4.mul(teapot.matrix, teapot.matrix, m);  // LOCAL AXIS ORDER
+               mat4.mul(head.matrix, head.matrix, m);  // LOCAL AXIS ORDER
             }
             rot.lasty = rot.y;
          }
@@ -208,14 +209,14 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
             var q = quat.setAxisAngle(quat.create(), vec3.fromValues(0,0,1), (rot.lastz - rot.z)*Phoria.RADIANS);
             var m = mat4.fromQuat(mat4.create(), q);
             if (rot.worldaxis) {
-               mat4.mul(obj.matrix, m, teapot.matrix);  // WORLD AXIS ORDER
+               mat4.mul(obj.matrix, m, head.matrix);  // WORLD AXIS ORDER
             }
             else {
-               mat4.mul(teapot.matrix, teapot.matrix, m);  // LOCAL AXIS ORDER
+               mat4.mul(head.matrix, head.matrix, m);  // LOCAL AXIS ORDER
             }
             rot.lastz = rot.z;
          }
-         
+
          // the light position is edited directly via the GUI - update the visible indicator
          visibleLightObj.points[0].x = light.position.x;
          visibleLightObj.points[0].y = light.position.y;
@@ -243,10 +244,10 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
          // and render the scene
          renderer.render(scene);
       }
-      
+
       requestAnimFrame(fnAnimate);
    };*/
-   
+
    // add GUI controls
    var gui = new dat.GUI();
    var f = gui.addFolder('Perspective');
@@ -269,8 +270,8 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
    f.add(scene.camera.up, "y").min(-10).max(10).step(0.1);
    f.add(scene.camera.up, "z").min(-10).max(10).step(0.1);
    f = gui.addFolder('Rendering');
-   f.add(teapot.style, "shademode", ["plain", "lightsource"]);
-   f.add(teapot.style, "doublesided");
+   f.add(head.style, "shademode", ["plain", "lightsource"]);
+   f.add(head.style, "doublesided");
    f = gui.addFolder('Light');
    f.add(light.position, "x").min(-25).max(25).step(0.1);
    f.add(light.position, "y").min(-25).max(25).step(0.1);
@@ -298,7 +299,7 @@ f = gui.addFolder('Rotate XYZ');
          }
       }
    }, false);
-   
+
    // start animation
    requestAnimFrame(fnAnimate);
 }
@@ -313,6 +314,3 @@ f = gui.addFolder('Rotate XYZ');
 
    </body>
 </html>
-
-
-
