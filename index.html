@@ -13,7 +13,7 @@
       <script src='scripts/dat.gui.min.js'></script>
       <script>
 var requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame ||
-                       window.mozRequestAnimationFrame || window.msRequestAnimationFrame || 
+                       window.mozRequestAnimationFrame || window.msRequestAnimationFrame ||
                        function(c) {window.setTimeout(c, 15)};
 /**
    Phoria
@@ -30,7 +30,7 @@ function onloadHandler()
   // loader.addImage(bitmaps[0], 'images/texture2.png');
    // get the canvas DOM element and the 2D drawing context
    var canvas = document.getElementById('canvas');
-   
+
    // create the scene and setup camera, perspective and viewport
    var scene = new Phoria.Scene();
    scene.camera.position = {x:0, y:-0.8, z:-15};
@@ -38,10 +38,10 @@ function onloadHandler()
    scene.viewport.width = canvas.width;
    scene.viewport.height = canvas.height;
    //scence.perspective.fov=2;
-   
+
    // create a canvas renderer
    var renderer = new Phoria.CanvasRenderer(canvas);
-   
+
    // GENERATE TEST ENTITIES
    // add a grid to help visualise camera position etc.
    var plane = Phoria.Util.generateTesselatedPlane(16,16,0,20);
@@ -200,7 +200,7 @@ points: [{x:-0.975677,y:1.941183,z:-2.049427},//0
 ///points:obj.points,
 polygons: [{vertices:[21,20,38]},{vertices:[19,20,21]},{vertices:[24,19,27]},{vertices:[21,38,37]},{vertices:[18,20,19]},{vertices:[19,21,22]},{vertices:[19,22,27]},{vertices:[27,26,24]},{vertices:[18,19,24]},{vertices:[37,38,39]},{vertices:[27,22,26]},{vertices:[24,25,18]},{vertices:[24,26,25]},{vertices:[67,39,38]},{vertices:[78,37,39]},{vertices:[54,21,37]},{vertices:[38,20,45]},{vertices:[22,21,54]},{vertices:[45,20,18]},{vertices:[78,39,72]},{vertices:[67,72,39]},{vertices:[38,45,67]},{vertices:[54,37,78]},{vertices:[15,18,25]},{vertices:[22,17,26]},{vertices:[17,25,26]},{vertices:[78,72,86]},{vertices:[67,68,72]},{vertices:[78,86,54]},{vertices:[86,72,73]},{vertices:[45,18,43]},{vertices:[22,54,53]},{vertices:[67,45,68]},{vertices:[72,68,74]},{vertices:[72,74,73]},{vertices:[53,17,22]},{vertices:[17,15,25]},{vertices:[43,18,15]},{vertices:[73,74,139]},{vertices:[45,65,68]},{vertices:[54,86,89]},{vertices:[68,65,74]},{vertices:[86,73,89]},/*lower*/{vertices:[74,65,139]},/*lower*/{vertices:[139,89,73]},{vertices:[76,89,88]},{vertices:[65,76,88]},{vertices:[45,44,65]},{vertices:[54,89,52]},{vertices:[44,45,43]},{vertices:[53,54,52]},{vertices:[76,84,89]},{vertices:[65,66,76]},{vertices:[44,66,65]},{vertices:[0,15,17]},{vertices:[52,89,84]},{vertices:[43,15,1]},{vertices:[53,0,17]},{vertices:[66,83,76]},{vertices:[83,84,76]},{vertices:[0,1,15]},{vertices:[66,70,83]},{vertices:[83,79,84]},{vertices:[44,46,66]},{vertices:[52,84,51]},{vertices:[53,52,48]},{vertices:[44,43,42]},{vertices:[90,83,70]},{vertices:[82,79,83]},{vertices:[90,82,83]},{vertices:[46,70,66]},{vertices:[51,84,79]},{vertices:[61,0,53]},{vertices:[42,46,44]},{vertices:[48,52,51]},{vertices:[1,0,2]},{vertices:[1,56,43]},{vertices:[90,70,71]},{vertices:[82,81,79]},{vertices:[90,81,82]},{vertices:[46,69,70]},{vertices:[51,79,80]},{vertices:[48,61,53]},{vertices:[42,43,56]},{vertices:[80,79,81]},{vertices:[71,70,69]},{vertices:[42,47,46]},{vertices:[48,51,55]},{vertices:[47,69,46]},{vertices:[80,55,51]},{vertices:[2,16,1]},{vertices:[71,81,90]},{vertices:[2,0,61]},{vertices:[85,55,80]},{vertices:[47,91,69]},{vertices:[42,40,47]},{vertices:[16,56,1]},{vertices:[48,55,50]},/*{vertices:[80,81,85]},*//*{vertices:[71,69,91]},*/{vertices:[40,91,47]},{vertices:[85,50,55]}/*,{vertices:[16,2,32]}/*,{vertices:[34,28,7]}*/,{vertices:[34,32,28]},{vertices:[16,32,34]},{vertices:[71,91,64]},{vertices:[85,81,77]},{vertices:[71,87,81]},{vertices:[48,50,49]},{vertices:[49,61,48]},{vertices:[40,64,91]},{vertices:[85,77,50]},{vertices:[87,77,81]}/*,{vertices:[33,16,34]}*/,{vertices:[64,87,71]}/*,{vertices:[2,30,32]}*/,{vertices:[41,40,42]},{vertices:[61,31,2]}/*,{vertices:[35,34,7]},{vertices:[7,28,9]},{vertices:[32,9,28]},{vertices:[2,31,30]}*/,{vertices:[95,96,61]},{vertices:[42,56,41]},{vertices:[33,34,35]},{vertices:[95,61,49]},{vertices:[50,77,63]},/*{vertices:[35,7,8]},*/{vertices:[60,96,95]}/*,{vertices:[32,30,9]},{vertices:[5,61,96]}*/,{vertices:[60,58,96]},/*{vertices:[7,9,8]},*/{vertices:[49,50,63]},{vertices:[31,61,5]},{vertices:[62,64,40]},{vertices:[59,16,33]},{vertices:[64,75,87]},{vertices:[75,77,87]},{vertices:[58,5,96]},{vertices:[59,56,16]},{vertices:[49,63,95]},{vertices:[5,33,35]},/*{vertices:[31,36,30]},*/{vertices:[41,62,40]},{vertices:[75,63,77]},/*{vertices:[31,5,36]},/*{vertices:[36,35,8]},{vertices:[5,35,36]},*/{vertices:[60,95,12]},{vertices:[5,59,33]},{vertices:[62,75,64]},{vertices:[41,56,57]},{vertices:[95,63,12]}/*,{vertices:[30,29,9]}*/,{vertices:[58,98,5]},{vertices:[60,11,58]},/*{vertices:[30,36,29]},{vertices:[8,9,29]},*/{vertices:[59,57,56]},/*{vertices:[36,8,29]},*/{vertices:[75,94,63]},{vertices:[41,57,62]},{vertices:[97,59,5]},{vertices:[63,94,12]},{vertices:[93,75,62]},{vertices:[58,6,98]},{vertices:[98,97,5]},{vertices:[93,94,75]},{vertices:[60,12,11]},{vertices:[97,57,59]},{vertices:[62,57,92]},{vertices:[92,93,62]},{vertices:[58,11,6]},{vertices:[92,57,97]},{vertices:[23,94,93]},{vertices:[94,13,12]},{vertices:[98,3,97]},{vertices:[93,92,10]},{vertices:[97,10,92]},{vertices:[23,13,94]},{vertices:[6,4,98]},{vertices:[11,12,14]},{vertices:[10,23,93]},{vertices:[11,4,6]},{vertices:[14,12,13]},{vertices:[3,10,97]},{vertices:[4,3,98]},{vertices:[14,13,23]},{vertices:[11,14,4]},{vertices:[10,14,23]},{vertices:[4,10,3]},{vertices:[14,10,4]},{vertices:[99,100,101]},/*start*/{vertices:[99,101,102]},{vertices:[100,101,102]},{vertices:[103,104,105]},{vertices:[104,105,106]},{vertices:[107,108,100]},{vertices:[108,100,102]},{vertices:[107,109,110]},{vertices:[107,108,109]},{vertices:[109,103,104]},{vertices:[109,110,103]},{vertices:[103,107,111]},{vertices:[107,110,111]},{vertices:[100,110,111]},{vertices:[103,111,112]},{vertices:[103,105,112]},{vertices:[100,101,112]},{vertices:[111,112,100]},{vertices:[115,113,114]},{vertices:[115,116,113]},{vertices:[113,116,112]},{vertices:[101,99,113]},{vertices:[105,106,116]},{vertices:[105,112,116]},{vertices:[112,101,113]},{vertices:[104,115,106]},{vertices:[116,115,106]},{vertices:[102,114,99]},{vertices:[113,114,99]},{vertices:[117,118,114]},{vertices:[118,115,114]},{vertices:[117,119,114]},{vertices:[118,120,115]},{vertices:[113,114,119]},{vertices:[113,116,119]},{vertices:[115,120,116]},{vertices:[120,116,119]},{vertices:[119,120,121]},{vertices:[119,122,121]},/*{vertices:[122,124,121]},{vertices:[122,123,124]},*/{vertices:[123,124,125]},{vertices:[123,125,126]},{vertices:[125,126,127]},{vertices:[127,128,125]},{vertices:[127,128,130]},{vertices:[128,129,130]},{vertices:[129,130,131]},{
 vertices:[131,132,129]},{vertices:[134,132,131]},{vertices:[134,133,132]},{vertices:[135,136,133]},{vertices:[135,136,134]},{vertices:[137,118,117]},{vertices:[137,138,117]},{vertices:[126,123,140]},{vertices:[126,140,127]},{vertices:[127,140,141]},{vertices:[141,131,142]},{vertices:[141,131,127]},{vertices:[134,142,131]},{vertices:[125,124,143]},{vertices:[125,143,128]},{vertices:[144,143,128]},{vertices:[132,145,128]},{vertices:[128,145,144]},{vertices:[132,145,133]}],
- 
+
 /*points:[{x:0,y:0,z:0},{x:1,y:2,z:1},{x:-1,y:-1,z:2},{x:-1.9,y:1,z:-1},{x:1,y:-1,z:-2},{x:-2,y:-1,z:1},{x:-3,y:-10,z:6},{x:-7,y:-4,z:-2},{x:-1,y:-1,z:2}],
 polygons:[{vertices:[0,1,2]},{vertices:[3,4,2]},{vertices:[4,3,2]},{vertices:[1,2,3]},{vertices:[4,2,6]}],*/
      /* style: {
@@ -247,7 +247,6 @@ head.polygons[38].opacity=0.5;head.polygons[43].opacity=0.5;head.polygons[44].op
 //testCube.textures.push(bitmaps[0]);
    scene.graph.push(head);
    scene.graph.push(new Phoria.DistantLight());
-
 var pause=false;
 var stop=document.getElementById("stop");
 stop.onclick=function(){
@@ -259,11 +258,8 @@ start.onclick=function(){
 pause=false;
 requestAnimFrame(fnAnimate);
 }
-
-
 var Bilabial_Fricative=document.getElementById("Bilabialfricative");
 Bilabial_Fricative.onclick=function(){
-
 head.points[60]={x:-3.211418,y:4.231021,z:1.610186};//58
 head.points[61]={x:-2.481380,y:3.706841,z:-0.458291};//59
 head.points[62]={x:1.670709,y:5.031085,z:3.161544};//60
@@ -296,20 +292,15 @@ head.points[88]={x:-0.063130,y:1.058354,z:4.315117};//86
 head.points[89]={x:-0.952864,y:1.113531,z:3.877555};//87ma
 head.points[90]={x:0.096565,y:2.023949,z:4.752680};//88
 head.points[139]={x:-0.063130,y:1.058354,z:4.315117};
-
 head.points[139]={x:-0.063130,y:1,z:4.315117};
 head.points[88]={x:-0.063130,y:1.098354,z:4.315117};
-
 document.getElementById("IPA").innerHTML="ɸ";
-
 var snd = new Audio("http://www.antimoon.com/sound/chart/thismother.mp3");
       snd.volume=1;
     snd.play();
 }
 var spread=document.getElementById("spread");
 spread.onclick=function(){
-
-
 head.points[60]={x:-3.211418,y:4.231021,z:1.610186};//58
 head.points[61]={x:-2.481380,y:3.706841,z:-0.458291};//59
 head.points[62]={x:1.670709,y:5.031085,z:3.161544};//60
@@ -342,12 +333,9 @@ head.points[88]={x:-0.063130,y:1.058354,z:4.315117};//86
 head.points[89]={x:-0.952864,y:1.113531,z:3.877555};//87ma
 head.points[90]={x:0.096565,y:2.023949,z:4.752680};//88
 head.points[139]={x:-0.063130,y:1.058354,z:4.315117};
-
 head.points[139]={x:-0.063130,y:0.7,z:4.315117};
 head.points[88]={x:-0.063130,y:1.2,z:4.315117};
-
 document.getElementById("IPA").innerHTML="h";
-
 var snd = new Audio("http://www.antimoon.com/sound/chart/howhello.mp3");
       snd.volume=1;
     snd.play();
@@ -355,7 +343,6 @@ var snd = new Audio("http://www.antimoon.com/sound/chart/howhello.mp3");
 var butto = document.getElementById("rounded");
 butto.onclick = function(){
   //do stuff
-
 head.points[60]={x:-3.211418,y:4.231021,z:1.610186};//58
 head.points[61]={x:-2.481380,y:3.706841,z:-0.458291};//59
 head.points[62]={x:1.670709,y:5.031085,z:3.161544};//60
@@ -388,32 +375,25 @@ head.points[88]={x:-0.063130,y:1.058354,z:4.315117};//86
 head.points[89]={x:-0.952864,y:1.113531,z:3.877555};//87ma
 head.points[90]={x:0.096565,y:2.023949,z:4.752680};//88
 head.points[139]={x:-0.063130,y:1.058354,z:4.315117};
-
 head.points[76]={x:-0.063130,y:1.461827,z:4.703788};
 head.points[88]={x:-0.063130,y:1.25,z:4.525117};
-
 head.points[73]={x:-0.336895,y:0.610059,z:4.7034453};//71
 head.points[74]={x:0.210634,y:0.610059,z:4.7034453};//72
 head.points[139]={x:-0.063130,y:0.858354,z:4.525117};
-
 document.getElementById("IPA").innerHTML="hʷ";
-
   var snd = new Audio("http://www.focloir.ie/media/ei/sounds/tra_xthno_xna_u.mp3");
       snd.volume=1;
     snd.play();
-
 /*head.points[76]={x:-0.063130,y:1.401827,z:4.593788};
 head.points[86]={x:-0.770354,y:0.742470,z:4.416447};
 head.points[139]={x:-0.063130,y:1,z:4.315117};
-head.points[88]={x:-0.063130,y:1.098354,z:4.315117};*/                                                                                  
+head.points[88]={x:-0.063130,y:1.098354,z:4.315117};*/
 //head.points[20]={x:0,y:0,z:0};
 requestAnimFrame(fnAnimate);
 }
-
 var butt = document.getElementById("blstop");
 butt.onclick = function(){
   //do stuff
-
 head.points[60]={x:-3.211418,y:4.231021,z:1.610186};//58
 head.points[61]={x:-2.481380,y:3.706841,z:-0.458291};//59
 head.points[62]={x:1.670709,y:5.031085,z:3.161544};//60
@@ -446,28 +426,23 @@ head.points[88]={x:-0.063130,y:1.058354,z:4.315117};//86
 head.points[89]={x:-0.952864,y:1.113531,z:3.877555};//87ma
 head.points[90]={x:0.096565,y:2.023949,z:4.752680};//88
 head.points[139]={x:-0.063130,y:1.058354,z:4.315117};
-
 head.points[76]={x:-0.063130,y:1.16,z:4.603788};
 head.points[73]={x:-0.336895,y:0.93,z:4.5034453};//71
 head.points[74]={x:0.210634,y:0.93,z:4.5034453};//72
-
 document.getElementById("IPA").innerHTML="p";
-
 var snd = new Audio("http://www.antimoon.com/sound/chart/petmap.mp3");
       snd.volume=1;
     snd.play();
 /*head.points[76]={x:-0.063130,y:1.401827,z:4.593788};
 head.points[86]={x:-0.770354,y:0.742470,z:4.416447};
 head.points[139]={x:-0.063130,y:1,z:4.315117};
-head.points[88]={x:-0.063130,y:1.098354,z:4.315117};*/                                                                                  
+head.points[88]={x:-0.063130,y:1.098354,z:4.315117};*/
 //head.points[20]={x:0,y:0,z:0};
 requestAnimFrame(fnAnimate);
 }
-
 var but = document.getElementById("ld");
 but.onclick = function(){
   //do stuff
-
 head.points[60]={x:-3.211418,y:4.231021,z:1.610186};//58
 head.points[61]={x:-2.481380,y:3.706841,z:-0.458291};//59
 head.points[62]={x:1.670709,y:5.031085,z:3.161544};//60
@@ -500,23 +475,16 @@ head.points[88]={x:-0.063130,y:1.058354,z:4.315117};//86
 head.points[89]={x:-0.952864,y:1.113531,z:3.877555};//87ma
 head.points[90]={x:0.096565,y:2.023949,z:4.752680};//88
 head.points[139]={x:-0.063130,y:1.058354,z:4.315117};
-
-
 head.points[88]={x:-0.063130,y:1.098354,z:4.415117};//86
 head.points[139]={x:-0.063130,y:0.9,z:3.8};
 head.points[73]={x:-0.336895,y:0.810059,z:4.1};//71
 head.points[74]={x:0.210634,y:0.810059,z:4.1};//72
-
 document.getElementById("IPA").innerHTML="f";
-
-
 var snd = new Audio("http://www.antimoon.com/sound/chart/findif.mp3");
       snd.volume=1;
     snd.play();
 requestAnimFrame(fnAnimate);
 }
-
-
 var button = document.getElementById("dentt");
 button.onclick = function(){
   head.points[100]={x:0.7,y:1.12,z:3};
@@ -529,22 +497,17 @@ head.points[109]={x:-0.3,y:0.7,z:3.5};
 head.points[110]={x:-0.3,y:1.12,z:3.5};
 head.points[111]={x:0,y:1.25,z:3};//111
 head.points[112]={x:0,y:1.25,z:1};
-
-
 head.points[107]={x:0.3,y:1.36,z:3.7};
 head.points[108]={x:0.3,y:1.06,z:3.75};
 head.points[109]={x:-0.3,y:1.06,z:3.75};
 head.points[110]={x:-0.3,y:1.36,z:3.7};
-
 document.getElementById("IPA").innerHTML="t̪";
-
 var snd = new Audio("http://www.antimoon.com/sound/chart/checkchurch.mp3");
       snd.volume=1;
     snd.play();
 //document.getElementById("IPA").innerHTML="f";
 requestAnimFrame(fnAnimate);
 }
-
 var button = document.getElementById("theta");
 button.onclick = function(){
   head.points[100]={x:0.7,y:1.12,z:3};
@@ -557,21 +520,16 @@ head.points[109]={x:-0.3,y:0.7,z:3.5};
 head.points[110]={x:-0.3,y:1.12,z:3.5};
 head.points[111]={x:0,y:1.25,z:3};//111
 head.points[112]={x:0,y:1.25,z:1};
-
-
 head.points[107]={x:0.3,y:1.32,z:3.5};
 head.points[108]={x:0.3,y:1,z:3.6};
 head.points[109]={x:-0.3,y:1,z:3.6};
 head.points[110]={x:-0.3,y:1.32,z:3.5};
-
 document.getElementById("IPA").innerHTML="θ͡ɸ";
-
 var snd = new Audio("http://www.antimoon.com/sound/chart/thinkboth.mp3");
       snd.volume=1;
     snd.play();
 requestAnimFrame(fnAnimate);
 }
-
 var button = document.getElementById("td");
 button.onclick = function(){
   head.points[100]={x:0.7,y:1.12,z:3};
@@ -584,21 +542,16 @@ head.points[109]={x:-0.3,y:0.7,z:3.5};
 head.points[110]={x:-0.3,y:1.12,z:3.5};
 head.points[111]={x:0,y:1.25,z:3};//111
 head.points[112]={x:0,y:1.25,z:1};
-
-
 head.points[107]={x:0.3,y:1.5,z:3.65};
 head.points[108]={x:0.3,y:1.25,z:3.6};
 head.points[109]={x:-0.3,y:1.25,z:3.6};
 head.points[110]={x:-0.3,y:1.5,z:3.65};
-
 document.getElementById("IPA").innerHTML="t";
-
 var snd = new Audio("http://www.antimoon.com/sound/chart/teagetting.mp3");
       snd.volume=1;
     snd.play();
 requestAnimFrame(fnAnimate);
 }
-
 var button = document.getElementById("sz");
 button.onclick = function(){
   head.points[100]={x:0.7,y:1.12,z:3};
@@ -611,22 +564,16 @@ head.points[109]={x:-0.3,y:0.7,z:3.5};
 head.points[110]={x:-0.3,y:1.12,z:3.5};
 head.points[111]={x:0,y:1.25,z:3};//111
 head.points[112]={x:0,y:1.25,z:1};
-
-
 head.points[107]={x:0.3,y:1.45,z:3.4};
 head.points[108]={x:0.3,y:1.15,z:3.5};
 head.points[109]={x:-0.3,y:1.15,z:3.5};
 head.points[110]={x:-0.3,y:1.45,z:3.4};
-
 document.getElementById("IPA").innerHTML="s͡ɸ";
-
 var snd = new Audio("");
       snd.volume=1;
     snd.play();
 requestAnimFrame(fnAnimate);
 }
-
-
 var button = document.getElementById("rett");
 button.onclick = function(){
   head.points[100]={x:0.7,y:1.12,z:3};
@@ -639,8 +586,6 @@ head.points[109]={x:-0.3,y:0.7,z:3.5};
 head.points[110]={x:-0.3,y:1.12,z:3.5};
 head.points[111]={x:0,y:1.25,z:3};//111
 head.points[112]={x:0,y:1.25,z:1};
-
-
 head.points[100]={x:0.7,y:1.12,z:2.55};
 head.points[102]={x:0.7,y:0.7,z:2.7};
 head.points[103]={x:-0.7,y:1.12,z:2.55};
@@ -649,15 +594,12 @@ head.points[107]={x:0.3,y:1.75,z:3.2};
 head.points[108]={x:0.3,y:1.45,z:3.3};
 head.points[109]={x:-0.3,y:1.45,z:3.3};
 head.points[110]={x:-0.3,y:1.75,z:3.2};
-
 document.getElementById("IPA").innerHTML="t";
-
 var snd = new Audio("");
       snd.volume=1;
     snd.play();
 requestAnimFrame(fnAnimate);
 }
-
 var button = document.getElementById("rets");
 button.onclick = function(){
   head.points[100]={x:0.7,y:1.12,z:2.55};
@@ -670,8 +612,6 @@ head.points[109]={x:-0.3,y:0.7,z:3.5};
 head.points[110]={x:-0.3,y:1.12,z:3.5};
 head.points[111]={x:0,y:1.25,z:3};//111
 head.points[112]={x:0,y:1.25,z:1};
-
-
 head.points[100]={x:0.7,y:1.12,z:2.55};
 head.points[102]={x:0.7,y:0.7,z:2.7};
 head.points[103]={x:-0.7,y:1.12,z:2.55};
@@ -680,16 +620,12 @@ head.points[107]={x:0.3,y:1.6,z:3.1};
 head.points[108]={x:0.3,y:1.3,z:3.2};
 head.points[109]={x:-0.3,y:1.3,z:3.2};
 head.points[110]={x:-0.3,y:1.6,z:3.1};
-
 document.getElementById("IPA").innerHTML="s͡ɸ";
-
 var snd = new Audio("");
       snd.volume=1;
     snd.play();
 requestAnimFrame(fnAnimate);
 }
-
-
 var button = document.getElementById("cJ");
 button.onclick = function(){
   head.points[100]={x:0.7,y:1.12,z:2.55};
@@ -702,8 +638,6 @@ head.points[109]={x:-0.3,y:0.7,z:3.5};
 head.points[110]={x:-0.3,y:1.12,z:3.5};
 head.points[111]={x:0,y:1.25,z:3};//111
 head.points[112]={x:0,y:1.25,z:1};
-
-
 head.points[111]={x:0,y:1.25,z:2.5};//111
 head.points[100]={x:0.7,y:1.5,z:2.55};
 //head.points[102]={x:0.7,y:0.7,z:2.7};
@@ -713,15 +647,12 @@ head.points[107]={x:0.3,y:1.9,z:2.7};
 head.points[108]={x:0.3,y:1.6,z:2.8};
 head.points[109]={x:-0.3,y:1.6,z:2.8};
 head.points[110]={x:-0.3,y:1.9,z:2.7};
-
 document.getElementById("IPA").innerHTML="c";
-
 var snd = new Audio("");
       snd.volume=1;
     snd.play();
 requestAnimFrame(fnAnimate);
 }
-
 var button = document.getElementById("cced");
 button.onclick = function(){
   head.points[100]={x:0.7,y:1.12,z:2.55};
@@ -732,7 +663,6 @@ head.points[107]={x:0.3,y:1.12,z:3.5};
 head.points[108]={x:0.3,y:0.7,z:3.5};
 head.points[109]={x:-0.3,y:0.7,z:3.5};
 head.points[110]={x:-0.3,y:1.12,z:3.5};
-
 head.points[111]={x:0,y:1.25,z:2.5};//111
 head.points[100]={x:0.7,y:1.5,z:2.55};
 //head.points[102]={x:0.7,y:0.7,z:2.7};
@@ -742,16 +672,12 @@ head.points[107]={x:0.3,y:1.9,z:2.3};
 head.points[108]={x:0.3,y:1.6,z:2.4};
 head.points[109]={x:-0.3,y:1.6,z:2.4};
 head.points[110]={x:-0.3,y:1.9,z:2.3};
-
-
 document.getElementById("IPA").innerHTML="ç͡ɸ";
-
 var snd = new Audio("");
       snd.volume=1;
     snd.play();
 requestAnimFrame(fnAnimate);
 }
-
 var button = document.getElementById("kg");
 button.onclick = function(){
   head.points[100]={x:0.7,y:1.12,z:2.55};
@@ -762,7 +688,6 @@ head.points[107]={x:0.3,y:1.12,z:3.5};
 head.points[108]={x:0.3,y:0.7,z:3.5};
 head.points[109]={x:-0.3,y:0.7,z:3.5};
 head.points[110]={x:-0.3,y:1.12,z:3.5};
-
 head.points[111]={x:0,y:1.25,z:2.5};//111
 head.points[100]={x:0.7,y:1.5,z:2.55};
 //head.points[102]={x:0.7,y:0.7,z:2.7};
@@ -772,17 +697,12 @@ head.points[107]={x:0.3,y:1.9,z:2.3};
 head.points[108]={x:0.3,y:1.6,z:2.4};
 head.points[109]={x:-0.3,y:1.6,z:2.4};
 head.points[110]={x:-0.3,y:1.9,z:2.3};
-
-
 document.getElementById("IPA").innerHTML="kʷ";
-
 var snd = new Audio("");
       snd.volume=1;
     snd.play();
 requestAnimFrame(fnAnimate);
 }
-
-
 var button = document.getElementById("x");
 button.onclick = function(){
   head.points[100]={x:0.7,y:1.12,z:2.55};
@@ -793,7 +713,6 @@ head.points[107]={x:0.3,y:1.12,z:3.5};
 head.points[108]={x:0.3,y:0.7,z:3.5};
 head.points[109]={x:-0.3,y:0.7,z:3.5};
 head.points[110]={x:-0.3,y:1.12,z:3.5};
-
 head.points[111]={x:0,y:1.25,z:2.5};//111
 head.points[100]={x:0.7,y:1.5,z:1.9};
 //head.points[102]={x:0.7,y:0.7,z:2.7};
@@ -803,16 +722,12 @@ head.points[107]={x:0.3,y:1.9,z:2.1};
 head.points[108]={x:0.3,y:1.6,z:2.4};
 head.points[109]={x:-0.3,y:1.6,z:2.4};
 head.points[110]={x:-0.3,y:1.9,z:2.1};
-
-
 document.getElementById("IPA").innerHTML="xʷ";
-
 var snd = new Audio("");
       snd.volume=1;
     snd.play();
 requestAnimFrame(fnAnimate);
 }
-
 if(1){}
   /*var tounge=Phoria.Entity.create({
       points:[{x:2,y:0,z:5},{x:3,y:1,z:7},{x:2,y:4,z:5}],
@@ -844,17 +759,63 @@ tounge.translateZ(16);
       position: {x:0, y:0, z:-12},
       color: [255,182,0]
    });
- 
+
    blueLightObj.children.push(blueLight);*/
   // var pause=false;
+  var rot = {
+     x: 0,
+     y: 0,
+     z: 0,
+     lastx: 0,
+     lasty: 0,
+     lastz: 0,
+     worldaxis: true
+  };
+
    var fnAnimate = function() {
       // rotate local matrix of an object
 if(!pause){
-    head.rotateY(0.5*Phoria.RADIANS);
+  //  head.rotateY(0.5*Phoria.RADIANS);
       //tounge.rotateY(0.8*Phoria.RADIANS);
       // execute the model view 3D pipeline
+      if (rot.lastx - rot.x)
+      {
+         var q = quat.setAxisAngle(quat.create(), vec3.fromValues(1,0,0), (rot.lastx - rot.x)*Phoria.RADIANS);
+         var m = mat4.fromQuat(mat4.create(), q);
+         if (rot.worldaxis) {
+            mat4.mul(obj.matrix, m, head.matrix);  // WORLD AXIS ORDER
+         }
+         else {
+            mat4.mul(head.matrix, head.matrix, m);  // LOCAL AXIS ORDER
+         }
+         rot.lastx = rot.x;
+      }
+      if (rot.lasty - rot.y)
+      {
+         var q = quat.setAxisAngle(quat.create(), vec3.fromValues(0,1,0), (rot.lasty - rot.y)*Phoria.RADIANS);
+         var m = mat4.fromQuat(mat4.create(), q);
+         if (rot.worldaxis) {
+            mat4.mul(head.matrix, m, head.matrix);  // WORLD AXIS ORDER
+         }
+         else {
+            mat4.mul(head.matrix, head.matrix, m);  // LOCAL AXIS ORDER
+         }
+         rot.lasty = rot.y;
+      }
+      if (rot.lastz - rot.z)
+      {
+         var q = quat.setAxisAngle(quat.create(), vec3.fromValues(0,0,1), (rot.lastz - rot.z)*Phoria.RADIANS);
+         var m = mat4.fromQuat(mat4.create(), q);
+         if (rot.worldaxis) {
+            mat4.mul(obj.matrix, m, head.matrix);  // WORLD AXIS ORDER
+         }
+         else {
+            mat4.mul(head.matrix, head.matrix, m);  // LOCAL AXIS ORDER
+         }
+         rot.lastz = rot.z;
+      }
       scene.modelView();
-      
+
       // and render the scene
       renderer.render(scene);
       }
@@ -862,9 +823,9 @@ if(!pause){
    };
     //<p><button type="button">SPREAD</button>
    // add GUI controls
- 
+
    var gui = new dat.GUI();
-  
+
    var f = gui.addFolder('Perspective');
    f.add(scene.perspective, "fov").min(2).max(36);
    f.add(scene.perspective, "near").min(1).max(100);
@@ -891,8 +852,14 @@ if(!pause){
    f.add(head.style,"opacity",[0.5,2]);
    //f.add(head.point[0],[{x:-1.066932,y:3.651665,z:3.996890},{x:0.096565,y:2.023949,z:4.752680}]);
    // f.add(head.polygons[46]."drawmode",["point","solid"]);
+   f = gui.addFolder('Rotate XYZ');
+      f.add(rot, "worldaxis");
+      //f.add(rot, "x").min(-180).max(180);
+      f.add(rot, "y").min(-180).max(180);
+      //f.add(rot, "z").min(-180).max(180);
+
    f.open();
-   
+
    // start animation
    requestAnimFrame(fnAnimate);
 }
@@ -900,12 +867,11 @@ if(!pause){
    </head>
 <style type="text/css" media=screen>
 
-	
-	#IPA {	white-space: nowrap; 
+	#IPA {	white-space: nowrap;
 			font-size: xx-large;
 			background: #ffffff;
 			border: 4px groove #8a8a90;
-			color: #000000; 
+			color: #000000;
 			text-align: center;
 			font-family: 'Charis SIL', 'Libertinus Serif', 'Linux Libertine G', 'Linux Libertine', 'Linux Biolinum G', 'Linux Biolinum', 'Doulos SIL', 'Cardo', 'Brill', 'DejaVu Serif', 'Lucida Grande', 'Symbola', 'Junicode';
 			display: block;
@@ -915,8 +881,7 @@ if(!pause){
 			width: 3em;
 			padding-bottom: 1ex;
 			padding-top: 1ex;
-			border-radius: 12pt;}	
-
+			border-radius: 12pt;}
 	#controlpanel {	float: right;
 					padding-right: 1ex;
 					border-radius: 8pt;}
@@ -924,7 +889,6 @@ if(!pause){
                 float: right;color:#fff;
 }
 	#lip{float: left;color:#fff;}
-
 table {	border: thin solid #f5f5dc;
 			margin: 4px;
 			display: block;
@@ -944,16 +908,15 @@ table {	border: thin solid #f5f5dc;
 		padding: 4px;
 		border-bottom: thin solid #f5f5dc;
 		font-weight: normal;
-		text-transform: lowercase;} 
+		text-transform: lowercase;}
 	table.inner th {border: none;
 					text-align: left;}
 	table.inner td {text-align: center;}
+       #stealth{float:center;}
+      #singh{float:left;text-align:right;}
 
-       #stealth{float:center;}   
-      #singh{float:left;text-align:right;}     
-	
 </style>
-   
+
    <body style="background-color: #bfbfbf">
       <canvas id="canvas" width="768" height="512" style="background-color: #eee"></canvas>
       <div><h2><a style="color:#225588;text-decoration:none;" href="./second.html">&lt;&lt; Second part</a></h2></div>
@@ -971,7 +934,7 @@ table {	border: thin solid #f5f5dc;
 	<input type="radio" name="labial"  id="Bilabialfricative">&nbsp;Bilabial fricative<br>
 	<input type="radio" name="labial" id="blstop" value="blstop" onclick="doLips();">&nbsp;Bilabial stop<br>
 	<input type="radio" name="labial" id="ld" value="ld" onclick="doLips();">&nbsp;Labiodental contact*</p>
-	
+
 	</td></tr>
 	</tbody>
 </table>
@@ -983,7 +946,7 @@ table {	border: thin solid #f5f5dc;
 		<tbody>
 		<tr><th>Stop</th>		<td><input type="radio" name="lingual" id="dentt" value="21" onclick="doTongue();"></td>
 								<td><input type="radio" name="lingual" id="td" value="22" onclick="doTongue();"></td>                                                      <td><input type="radio" name="lingual" id="rett" value="23" onclick="doTongue();"></td>
-								
+
 								<td></td>
 								<td><input type="radio" name="lingual" id="cJ" value="25" onclick="doTongue();"></td>
 								<td><input type="radio" name="lingual" id="kg" value="26" onclick="doTongue();"></td>
