@@ -248,7 +248,7 @@ head.polygons[38].opacity=1;head.polygons[43].opacity=1;head.polygons[44].opacit
    scene.graph.push(head);
    scene.graph.push(new Phoria.DistantLight());
 var pause=false;
-var stop=document.getElementById("stop");
+/*var stop=document.getElementById("stop");
 stop.onclick=function(){
 pause=true;
 requestAnimFrame(fnAnimate);
@@ -257,7 +257,7 @@ var start=document.getElementById("start");
 start.onclick=function(){
 pause=false;
 requestAnimFrame(fnAnimate);
-}
+}*/
 var Bilabial_Fricative=document.getElementById("Bilabialfricative");
 Bilabial_Fricative.onclick=function(){
 head.points[60]={x:-3.211418,y:4.231021,z:1.610186};//58
@@ -914,15 +914,28 @@ table {	border: thin solid #f5f5dc;
 	table.inner td {text-align: center;}
        #stealth{float:center;}
       #singh{float:left;text-align:right;}
-
+      .stop{background-color: #1a3a43;
+    color: white;
+    border: 2px solid #1a3a43;
+  }
+div.scroll{margin: -500px 150px 400px 808px;
+  background-color: #00FFFF;
+     width: 300px;
+     height: 400px;
+     overflow: scroll;}
 </style>
 
    <body style="background-color: #bfbfbf">
       <canvas id="canvas" width="560" height="512" style="background-color: #eee"></canvas>
       <div><h2><a style="color:#225588;text-decoration:none;" href="./second.html">&lt;&lt; Second part</a></h2></div>
-<button id="stop" type="radio">stop rotation</button>
-<button id="start" type="radio">start rotation</button>
+<div class="stop">
+<button class="stop1" type="radio" >Left Side</button>
+<button id="start" type="radio">Right side</button>
+</div>
+<div class="scroll">
+  <h>about this page, in progress.....</h>
 
+</div>
 <table id="lip">
 	<thead>
 	<tr><th>Lips</th></tr>
