@@ -239,11 +239,11 @@ head.polygons[44].color=[255,20,147];
 head.polygons[45].color=[255,20,147];head.polygons[43].color=[255,20,147];
 head.polygons[46].color=[255,20,147];head.polygons[38].color=[255,20,147];
 //head.polygons[52].color=[0,0,0];head.polygons[51].color=[0,0,0];
-head.polygons[38].opacity=0.5;head.polygons[43].opacity=0.5;head.polygons[44].opacity=0.5;head.polygons[45].opacity=0.5;head.polygons[46].opacity=0.5;
+head.polygons[38].opacity=1;head.polygons[43].opacity=1;head.polygons[44].opacity=1;head.polygons[45].opacity=1;head.polygons[46].opacity=1;
 //head.polygons[51].opacity=0.5;head.polygons[52].opacity=0.5;
   head.scaleN(0.75).translateY(-3);
- // head.translateX(15);
-   head.translateZ(-6);
+ //head.translateX(15);
+   head.translateZ(4);
 //testCube.textures.push(bitmaps[0]);
    scene.graph.push(head);
    scene.graph.push(new Phoria.DistantLight());
@@ -771,7 +771,7 @@ tounge.translateZ(16);
      lastz: 0,
      worldaxis: true
   };
-
+rot.y=180;
    var fnAnimate = function() {
       // rotate local matrix of an object
 if(!pause){
@@ -918,7 +918,7 @@ table {	border: thin solid #f5f5dc;
 </style>
 
    <body style="background-color: #bfbfbf">
-      <canvas id="canvas" width="768" height="512" style="background-color: #eee"></canvas>
+      <canvas id="canvas" width="560" height="512" style="background-color: #eee"></canvas>
       <div><h2><a style="color:#225588;text-decoration:none;" href="./second.html">&lt;&lt; Second part</a></h2></div>
 <button id="stop" type="radio">stop rotation</button>
 <button id="start" type="radio">start rotation</button>
