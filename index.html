@@ -735,11 +735,12 @@ o=0;
 var button=document.getElementById("leftside");
 button.onclick=function(){
   if(o===0){
-  rot.y=0;
-  head.translateZ(0);
-  head.translateZ(-4);
+  rot.y=180;
+  //head.translateZ(0);
+//  if(t===1){head.translateZ(-4);}
+  //head.translateZ(-4);
 rot.y=90;
-head.translateX(-4);
+//head.translateX(-4);
 o=1;
 t=0;
 }
@@ -748,13 +749,25 @@ t=0;
 var button=document.getElementById("rightside");
 button.onclick=function(){
   if(t===0){
-  rot.y=0;
-  head.translateZ(0);
-  head.translateZ(-4);
+  rot.y=180;
+  //head.translateZ(0);
+  //head.translateZ(-4);
 rot.y=-90;
-head.translateX(4);
+//head.translateX(4);
 o=0;
 t=1;
+}
+}
+var button=document.getElementById("normal");
+button.onclick=function(){
+  if(t===0){
+  rot.y=180;
+  //head.translateZ(0);
+  //head.translateZ(-4);
+//rot.y=-90;
+//head.translateX(4);
+//o=0;
+//t=1;
 }
 }
 //now you can drag
@@ -962,6 +975,8 @@ div.scroll{margin: -545px 50px 150px 708px;
 <div class="stop">
 <input id="leftside" type="radio" name="left side">&nbsp;leftside
 <button id="rightside" type="radio">Right side</button>
+<button id="normal" type="radio">Normal</button>
+
 </div>
 <div class="scroll">
   <h>about this page, in progress.....</h>
@@ -1022,5 +1037,6 @@ div.scroll{margin: -545px 50px 150px 708px;
 
    </body>
 </html>
+
 
 
