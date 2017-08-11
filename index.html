@@ -244,6 +244,15 @@ head.polygons[38].opacity=1;head.polygons[43].opacity=1;head.polygons[44].opacit
   head.scaleN(0.75).translateY(-3);
  //head.translateX(15);
    head.translateZ(4);
+   head.translateZ(16);
+   head.translateZ(-16);
+   var i;
+   //console.log(head.length);
+   for(i=0;i<head.points.length;i++){
+   //head.points[i].x=head.points[i].x+2.22;
+   head.points[i].z=head.points[i].z-4;
+   }
+
 //testCube.textures.push(bitmaps[0]);
    scene.graph.push(head);
    scene.graph.push(new Phoria.DistantLight());
@@ -735,6 +744,7 @@ o=0;
 var button=document.getElementById("leftside");
 button.onclick=function(){
   if(o===0){
+  //  head.translateZ(4);
   rot.y=180;
   //head.translateZ(0);
 //  if(t===1){head.translateZ(-4);}
@@ -749,6 +759,7 @@ t=0;
 var button=document.getElementById("rightside");
 button.onclick=function(){
   if(t===0){
+    //head.translateZ(4);
   rot.y=180;
   //head.translateZ(0);
   //head.translateZ(-4);
@@ -758,17 +769,20 @@ o=0;
 t=1;
 }
 }
-var button=document.getElementById("normal");
-button.onclick=function(){
-  if(t===0){
+var button1=document.getElementById("normal");
+button1.onclick=function(){
+  //if(t===0){
+  if(t===1){  head.translateZ(-4);}
   rot.y=180;
+  //if(t===1){  head.translateZ(-4);
+//}
   //head.translateZ(0);
   //head.translateZ(-4);
 //rot.y=-90;
 //head.translateX(4);
 //o=0;
 //t=1;
-}
+//}
 }
 //now you can drag
 
@@ -1037,6 +1051,3 @@ div.scroll{margin: -545px 50px 150px 708px;
 
    </body>
 </html>
-
-
-
