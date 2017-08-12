@@ -25,7 +25,7 @@ function onloadHandler()
 {
    Phoria.Util.importGeometryWavefront({
       url: "Girl+Head.obj",
-      scaleTo: 3,
+      scaleTo:3,
       fnSuccess: generateScene,
       reorder: false,
       center: true
@@ -62,9 +62,10 @@ function generateScene(obj)
    }));
    //mohit is
    var head = Phoria.Entity.create({
-      points: obj.points,
+      points:obj.points,
       polygons: obj.polygons,
       style: {
+        color:[255,0,0],
          specular: 0,
 opacity:0.2,
          drawmode: "solid",
@@ -73,41 +74,27 @@ opacity:0.2,
       }
    });
    head.translateZ(1);
-  // teapot.translateY(-14);
+  // head.translateY(-10);
    head.translateX(-1);
    head.scaleN(3);
 var t;
-t=head.points.length;
+t=head.polygons.length;
 console.log(t);
     var i;
 var j;
 for(i=0;i<800;i++){
 head.polygons[i].opacity=0.001;
 }
-for(j=0;j<head.points.length;j++){
-console.log(head.points[j].x);
+var q;
+for(q=0;q<1000;q=q+2){
+  head.polygons[q].color=[200,200,0];
 }
-/*for(j=4500;j<5000;j++){
-teapot.polygons[j].opacity=0.001;
-}
-/*for(i=(teapot.points.length)/2;i<(teapot.points.length)/1;i++){
-teapot.polygons[i].color=[0,1,0];
-}
-//i=teapot.points[0].x;
-/*for(j=0;j<teapot.points.length;j++){
-if(i<teapot.points[j].x){i=teapot.points[j].x;}
-}
-console.log(i);*/
-    /*for(i=0;i<=300;i++){
-j=teapot.points[i].x;
-    teapot.points[i].x=j+3;
-//teapot.points[i].y=teapot.points[i].y+0;
-//teapot.points[i].z=teapot.points[i].z+0.3;
-}*/
-  /* for(i=0;i<teapot.polygons.length;i++){
-console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].vertices[1],",",teapot.polygons[i].vertices[2],"]},        ");
-}*/
-   //teapot.points[10].x=100;
+console.log(head);
+
+  window.exportData = function exportData() {
+          alasql("SELECT * INTO CSV('mohit2.csv') FROM ?",[obj]);
+      }
+
    scene.graph.push(head);
    // add a light
    scene.graph.push(Phoria.DistantLight.create({
@@ -133,7 +120,44 @@ console.log("{vertices:[",teapot.polygons[i].vertices[0],",",teapot.polygons[i].
       attenuation: 0.03
    });
    visibleLightObj.children.push(light);
+   var button=document.getElementById("leftside");
+   button.onclick=function(){
+     //if(o===0){
+     //  head.translateZ(4);
+     rot.y=180;
+     //head.translateZ(0);
+   //  if(t===1){head.translateZ(-4);}
+     //head.translateZ(-4);
+   rot.y=90;
+   //head.translateX(-4);
+   o=1;
+   t=0;
+   //}
+   }
 
+   var button=document.getElementById("rightside");
+   button.onclick=function(){
+
+     rot.y=180;
+   rot.y=-90;
+   o=0;
+   t=1;
+   
+   }
+   var button1=document.getElementById("normal");
+   button1.onclick=function(){
+     rot.y=180;
+
+   }
+   var button=document.getElementById("leftangle");
+   button.onclick=function(){
+
+     rot.y=180;
+   rot.y=135;
+   o=0;
+   t=1;
+
+   }
 
 /*var rotateZ3D = function(theta) {
     var sinTheta = tan(theta);
@@ -308,6 +332,16 @@ f = gui.addFolder('Rotate XYZ');
    </head>
 
    <body style="background-color: #bfbfbf">
+     <script src="http://alasql.org/console/alasql.min.js"></script>
+     <div class="stop">
+     <button id="leftside" type="radio" name="left side">leftside</button>
+     <button id="rightside" type="radio">Right side</button>
+     <button id="leftangle" type="radio">Left angle</button>
+     <button id="rightangle" type="radio">Right angle</button>
+     <button id="normal" type="radio">Normal</button>
+
+     </div>
+   <button onclick="window.exportData()">Export data to CSV file</button>
       <canvas id="canvas" width="768" height="512" style="background-color: #bfbfbf"></canvas>
       <div><a style="color:#225588;text-decoration:none;" href="./index.html">&lt;&lt; </a></div>
 		<input type="radio" name="labial" id="stop" value="spread" checked=true >&nbsp;stop<br>
