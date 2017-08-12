@@ -743,7 +743,7 @@ t=0;
 o=0;
 var button=document.getElementById("leftside");
 button.onclick=function(){
-  if(o===0){
+  //if(o===0){
   //  head.translateZ(4);
   rot.y=180;
   //head.translateZ(0);
@@ -753,36 +753,31 @@ rot.y=90;
 //head.translateX(-4);
 o=1;
 t=0;
-}
+//}
 }
 
 var button=document.getElementById("rightside");
 button.onclick=function(){
   if(t===0){
-    //head.translateZ(4);
   rot.y=180;
-  //head.translateZ(0);
-  //head.translateZ(-4);
 rot.y=-90;
-//head.translateX(4);
 o=0;
 t=1;
 }
 }
 var button1=document.getElementById("normal");
 button1.onclick=function(){
-  //if(t===0){
-  //if(t===1){  head.translateZ(-4);}
   rot.y=180;
-  //if(t===1){  head.translateZ(-4);
-//}
-  //head.translateZ(0);
-  //head.translateZ(-4);
-//rot.y=-90;
-//head.translateX(4);
-//o=0;
-//t=1;
-//}
+
+}
+var button=document.getElementById("leftangle");
+button.onclick=function(){
+
+  rot.y=180;
+rot.y=135;
+o=0;
+t=1;
+
 }
 //now you can drag
 
@@ -987,8 +982,10 @@ div.scroll{margin: -545px 50px 150px 708px;
       <canvas id="canvas" width="660" height="512" style="background-color: #eee"></canvas>
       <div><h2><a style="color:#225588;text-decoration:none;" href="./second.html">&lt;&lt; Second part</a></h2></div>
 <div class="stop">
-<input id="leftside" type="radio" name="left side">&nbsp;leftside
+<button id="leftside" type="radio" name="left side">leftside</button>
 <button id="rightside" type="radio">Right side</button>
+<button id="leftangle" type="radio">Left angle</button>
+<button id="rightangle" type="radio">Right angle</button>
 <button id="normal" type="radio">Normal</button>
 
 </div>
