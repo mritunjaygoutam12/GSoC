@@ -33,7 +33,7 @@ function onloadHandler()
 
    // create the scene and setup camera, perspective and viewport
    var scene = new Phoria.Scene();
-   scene.camera.position = {x:0, y:-0.8, z:-15};
+   scene.camera.position = {x:0, y:1, z:-15};
    scene.perspective.aspect = canvas.width / canvas.height;
    scene.viewport.width = canvas.width;
    scene.viewport.height = canvas.height;
@@ -243,6 +243,7 @@ head.polygons[38].opacity=1;head.polygons[43].opacity=1;head.polygons[44].opacit
 //head.polygons[51].opacity=0.5;head.polygons[52].opacity=0.5;
   head.scaleN(0.75).translateY(-3);
  //head.translateX(15);
+ //head.translateY(4);
    head.translateZ(4);
    head.translateZ(16);
    head.translateZ(-16);
@@ -251,7 +252,7 @@ head.polygons[38].opacity=1;head.polygons[43].opacity=1;head.polygons[44].opacit
   /* for(i=0;i<head.points.length;i++){
    //head.points[i].x=head.points[i].x+2.22;
    head.points[i].z=head.points[i].z-4;
-   }*/
+ }*/
 
 //testCube.textures.push(bitmaps[0]);
    scene.graph.push(head);
@@ -758,12 +759,12 @@ t=0;
 
 var button=document.getElementById("rightside");
 button.onclick=function(){
-  if(t===0){
+
   rot.y=180;
 rot.y=-90;
 o=0;
 t=1;
-}
+
 }
 var button1=document.getElementById("normal");
 button1.onclick=function(){
@@ -775,6 +776,15 @@ button.onclick=function(){
 
   rot.y=180;
 rot.y=135;
+o=0;
+t=1;
+
+}
+var button=document.getElementById("rightangle");
+button.onclick=function(){
+
+  rot.y=180;
+rot.y=-135;
 o=0;
 t=1;
 
@@ -979,7 +989,7 @@ div.scroll{margin: -545px 50px 150px 708px;
 </style>
 
    <body style="background-color: #bfbfbf">
-      <canvas id="canvas" width="660" height="512" style="background-color: #eee"></canvas>
+      <canvas id="canvas" width="660" height="450" style="background-color: #eee"></canvas>
       <div><h2><a style="color:#225588;text-decoration:none;" href="./second.html">&lt;&lt; Second part</a></h2></div>
 <div class="stop">
 <button id="leftside" type="radio" name="left side">leftside</button>
@@ -1048,3 +1058,4 @@ div.scroll{margin: -545px 50px 150px 708px;
 
    </body>
 </html>
+
