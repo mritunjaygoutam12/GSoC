@@ -918,7 +918,7 @@ if(!pause){
    f = gui.addFolder('Rotate XYZ');
       f.add(rot, "worldaxis");
       //f.add(rot, "x").min(-180).max(180);
-      f.add(rot, "y").min(-180).max(180);
+      f.add(rot, "y").min(0).max(720);
       //f.add(rot, "z").min(-180).max(180);
 
    f.open();
@@ -981,15 +981,27 @@ table {	border: thin solid #f5f5dc;
     color: white;
     border: 2px solid #1a3a43;
   }
+
 div.scroll{margin: -545px 50px 150px 708px;
   background-color: #eee;
      width: 300px;
      height: 400px;
      overflow: scroll;}
+     div.bind{
+
+         position: absolute;
+             left: 580px;
+             top: 50px;
+             z-index: 0;
+     }
 </style>
 
    <body style="background-color: #bfbfbf">
-      <canvas id="canvas" width="660" height="450" style="background-color: #eee"></canvas>
+ </div>
+      <canvas id="canvas" width="660" height="450" style="background-color: #eee"></canvas><div class="bind">
+      <button id="+" type="radio">+</button>
+      <button id="-" type="radio">-</button>
+      </div>
       <div><h2><a style="color:#225588;text-decoration:none;" href="./second.html">&lt;&lt; Second part</a></h2></div>
 <div class="stop">
 <button id="leftside" type="radio" name="left side">leftside</button>
@@ -999,6 +1011,7 @@ div.scroll{margin: -545px 50px 150px 708px;
 <button id="normal" type="radio">Normal</button>
 
 </div>
+
 <div class="scroll">
   <h>about this page, in progress.....</h>
 
@@ -1058,4 +1071,3 @@ div.scroll{margin: -545px 50px 150px 708px;
 
    </body>
 </html>
-
