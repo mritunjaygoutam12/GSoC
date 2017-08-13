@@ -33,7 +33,7 @@ function onloadHandler()
 
    // create the scene and setup camera, perspective and viewport
    var scene = new Phoria.Scene();
-   scene.camera.position = {x:0, y:1, z:-15};
+   scene.camera.position = {x:0, y:1, z:-17};
    scene.perspective.aspect = canvas.width / canvas.height;
    scene.viewport.width = canvas.width;
    scene.viewport.height = canvas.height;
@@ -738,10 +738,9 @@ var snd = new Audio("");
     snd.play();
 requestAnimFrame(fnAnimate);
 }
-var o;
+
 var t;
-t=0;
-o=0;
+var o;
 var button=document.getElementById("leftside");
 button.onclick=function(){
   //if(o===0){
@@ -752,8 +751,6 @@ button.onclick=function(){
   //head.translateZ(-4);
 rot.y=90;
 //head.translateX(-4);
-o=1;
-t=0;
 //}
 }
 
@@ -788,6 +785,23 @@ rot.y=-135;
 o=0;
 t=1;
 
+}
+t=0;
+o=0;
+var button2=document.getElementById("+");
+button2.onclick=function(){
+  if(scene.camera.position.z<-13&&scene.camera.position.z>=-17){
+  t=t+1;
+  scene.camera.position.z=scene.camera.position.z+t;}
+}
+
+var button3=document.getElementById("-");
+button3.onclick=function(){
+  if(scene.camera.position.z>=-24){
+
+  o=o-1;
+  scene.camera.position.z=scene.camera.position.z-t;
+}
 }
 //now you can drag
 
