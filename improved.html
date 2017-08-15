@@ -140,9 +140,8 @@ console.log(head);
 
      rot.y=180;
    rot.y=-90;
-   o=0;
-   t=1;
-   
+
+
    }
    var button1=document.getElementById("normal");
    button1.onclick=function(){
@@ -158,7 +157,24 @@ console.log(head);
    t=1;
 
    }
+var o,t;
+t=0;
+o=0;
+var button2=document.getElementById("+");
+button2.onclick=function(){
+  if(scene.camera.position.z<-13&&scene.camera.position.z<=-17){
+  t=t+1;
+  scene.camera.position.z=scene.camera.position.z+t;}
+}
 
+var button3=document.getElementById("-");
+button3.onclick=function(){
+  if(scene.camera.position.z>=-24){
+
+  o=o+1;
+  scene.camera.position.z=scene.camera.position.z-o;
+}
+}
 /*var rotateZ3D = function(theta) {
     var sinTheta = tan(theta);
     var cosTheta = cos(theta);
@@ -271,7 +287,6 @@ console.log(head);
 
       requestAnimFrame(fnAnimate);
    };*/
-
    // add GUI controls
    var gui = new dat.GUI();
    var f = gui.addFolder('Perspective');
@@ -329,8 +344,15 @@ f = gui.addFolder('Rotate XYZ');
 }
  </script>
 
-   </head>
+<style>
+div.bind{
 
+    position: absolute;
+        left: 750px;
+        top: 50px;
+        z-index: 0;
+}
+</style>
    <body style="background-color: #bfbfbf">
      <script src="http://alasql.org/console/alasql.min.js"></script>
      <div class="stop">
@@ -340,6 +362,10 @@ f = gui.addFolder('Rotate XYZ');
      <button id="rightangle" type="radio">Right angle</button>
      <button id="normal" type="radio">Normal</button>
 
+     </div>
+     <div class="bind">
+     <button id="+" type="radio">+</button>
+     <button id="-" type="radio">-</button>
      </div>
    <button onclick="window.exportData()">Export data to CSV file</button>
       <canvas id="canvas" width="768" height="512" style="background-color: #bfbfbf"></canvas>
