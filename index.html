@@ -803,6 +803,15 @@ button3.onclick=function(){
   scene.camera.position.z=scene.camera.position.z-o;
 }
 }
+
+document.getElementById("diphones_t").style.display = 'none';
+
+var button8=document.getElementById("diphones_b");
+button8.onclick=function(){
+  document.getElementById("change").style.display = 'none';
+      document.getElementById("diphones_t").style.display = 'Block';
+}
+
 //now you can drag
 
   /*var tounge=Phoria.Entity.create({
