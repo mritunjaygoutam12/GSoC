@@ -263,6 +263,15 @@ start.onclick=function(){
 pause=false;
 requestAnimFrame(fnAnimate);
 }*/
+var copy=[{x:-3.211418,y:4.231021,z:1.610186},{x:-2.481380,y:3.706841,z:-0.458291},{x:1.670709,y:5.031085,z:3.161544},{x:-1.660088,y:4.534493,z:3.161544},
+{x:0.986299,y:3.651665,z:3.996890},{x:0.849417,y:1.085943,z:3.877555},{x:0.735348,y:1.389415,z:4.036669},{x:0.689721,y:0.506586,z:3.917334},
+{x:0.644094,y:0.810059,z:4.076447},{x:1.396945,y:2.906778,z:3.559328},{x:0.484398,y:1.968772,z:4.156004},{x:0.142193,y:3.320604,z:4.116226},
+{x:-0.063130,y:0.506586,z:4.156004},{x:-0.336895,y:0.810059,z:4.434453},{x:0.210634,y:0.810059,z:4.434453},
+{x:-0.040317,y:4.975908,z:3.917333},{x:-0.063130,y:1.361827,z:4.553788},{x:-1.066932,y:3.651665,z:3.996890},
+{x:-0.770354,y:0.506586,z:3.917334},{x:-0.610659,y:1.968772,z:4.156004},{x:-1.477578,y:2.906778,z:3.559328},
+{x:-0.268453,y:3.320604,z:4.116226},{x:-0.222826,y:2.023949,z:4.752680},{x:-0.063130,y:1.692888,z:4.354896},
+{x:-0.838795,y:1.389415,z:4.036669},{x:-1.682902,y:3.348192,z:3.439992},{x:-0.770354,y:0.782470,z:4.076447}
+];
 var Bilabial_Fricative=document.getElementById("Bilabialfricative");
 Bilabial_Fricative.onclick=function(){
 head.points[60]={x:-3.211418,y:4.231021,z:1.610186};//58
@@ -877,23 +886,24 @@ button.onclick=function(){
   requestAnimFrame(fnAnimate);
 }
 
-document.getElementById("hc").style.display = 'none';
-document.getElementById("hʷc").style.display = 'none';
-document.getElementById("ɸc").style.display = 'none';
-document.getElementById("pc").style.display = 'none';
-document.getElementById("fc").style.display = 'none';
+//document.getElementById("hc").style.display = 'none';
+//document.getElementById("hʷc").style.display = 'none';
+//document.getElementById("ɸc").style.display = 'none';
+//document.getElementById("pc").style.display = 'none';
+document.getElementById("diphone").style.display = 'none';
 //document.getElementById("").style.display = 'none';
 
 
 var button8=document.getElementById("diphones_b");
 button8.onclick=function(){
   document.getElementById("change").style.display = 'none';
-      document.getElementById("hc").style.display = 'Block';
-      document.getElementById("hʷc").style.display = 'Block';
-      document.getElementById("ɸc").style.display = 'Block';
-      document.getElementById("pc").style.display = 'Block';
-      document.getElementById("fc").style.display = 'Block';
-    //  document.getElementById("").style.display = 'Block';
+      //document.getElementById("hc").style.display = 'Block';
+      //document.getElementById("hʷc").style.display = 'Block';
+      //document.getElementById("ɸc").style.display = 'Block';
+      //document.getElementById("pc").style.display = 'Block';
+      document.getElementById("diphone").style.display = 'Block';
+      document.getElementById("diphones_b").innerHTML="Previous";
+    // document.getElementById("").style.display = 'Block';
     //  document.getElementById("").style.display = 'none';
 
 }
@@ -1114,7 +1124,7 @@ div.scroll{margin: -545px 50px 150px 708px;
 
 </div>
 	<button id="diphones_b">phoneme selected</button>
-  <div id="diphone_">
+  <div id="diphone">
 <button id="hc" type="radio">h</button>
 <button id="hʷc" type="radio">hʷ</button>
 <button id="ɸc" type="radio">ɸ</button>
