@@ -893,9 +893,10 @@ button.onclick=function(){
 document.getElementById("diphone").style.display = 'none';
 //document.getElementById("").style.display = 'none';
 
-
+var check=0;
 var button8=document.getElementById("diphones_b");
 button8.onclick=function(){
+  if(check%2==0){
   document.getElementById("change").style.display = 'none';
       //document.getElementById("hc").style.display = 'Block';
       //document.getElementById("hʷc").style.display = 'Block';
@@ -903,8 +904,17 @@ button8.onclick=function(){
       //document.getElementById("pc").style.display = 'Block';
       document.getElementById("diphone").style.display = 'Block';
       document.getElementById("diphones_b").innerHTML="Previous";
+      check++;
     // document.getElementById("").style.display = 'Block';
     //  document.getElementById("").style.display = 'none';
+  }
+  else{
+    document.getElementById("change").style.display = 'Block';
+    document.getElementById("diphone").style.display = 'none';
+    document.getElementById("diphones_b").innerHTML="phoneme selected";
+    check++;
+
+  }
 
 }
 //now you can drag
