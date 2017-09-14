@@ -1,5 +1,6 @@
-$(document).ready(function(){
-  $.get("header.html", function(data) {
-    $("#header").html(data);
-  });
-}); 
+<script> 
+$(function(){
+$("#header").load("header.html"); 
+//$("#include_footer").load("footer.html"); 
+});
+</script>
