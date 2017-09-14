@@ -6,11 +6,14 @@
 <link href="samicon.gif" type="image/gif" rel="shortcut icon">
 	   <script src="scripts/carousel.js"></script>
       <script src="scripts/gl-matrix.js"></script>
+	       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
       <script src="scripts/phoria-util.js"></script>
       <script src="scripts/phoria-entity.js"></script>
       <script src="scripts/phoria-scene.js"></script>
       <script src="scripts/phoria-renderer.js"></script>
       <script src='scripts/dat.gui.min.js'></script>
+	   <script src="lallan.js"></script>
       <script>
 var requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame ||
                        window.mozRequestAnimationFrame || window.msRequestAnimationFrame ||
@@ -1166,7 +1169,9 @@ div.scroll{margin: -545px 50px 150px 708px;
 <button id="normal" type="radio">Normal</button>
 
 </div>
-
+<div id="header">
+      <!-- Content will be inserted by jQuery from header.html-->
+    </div>
 <div class="scroll">
   <h>about this page, in progress.....</h>
 
